@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CubeController : MonoBehaviour {
-
+    //キューブが積み重なるときの効果音
     private AudioSource audioSource;
     public AudioClip se;
 
@@ -15,6 +15,7 @@ public class CubeController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //効果音を取得
         this.audioSource = GetComponent<AudioSource>();
     }
 	
@@ -29,6 +30,8 @@ public class CubeController : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    //キューブが地面とキューブに接触したときに効果音を鳴らす
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "cube" || collision.gameObject.tag == "ground")
